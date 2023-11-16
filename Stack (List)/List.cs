@@ -15,34 +15,24 @@ namespace Stack__List_
         }
         public void Add(T data)
         {
-            Node newNode=new Node(data);
-            if (Head == null) 
-            { 
-                Head=newNode;
+            Node newNode = new Node(data);
+            if (Head == null)
+            {
+                Head = newNode;
                 Count++;
                 return;
             }
             Node current = Head;
-            while (current.Next!=null)
+            while (current.Next != null)
             {
-                current = current.Next; 
+                current = current.Next;
             }
             current.Next = newNode;
             Count++;
         }
         public T this[int index]
         {
-            get 
-            {
-                if (index < 0 || index >= Count) { throw new ArgumentOutOfRangeException(nameof(index)); }
-                Node current=Head;
-                for (int i = 0; i < index; i++)
-                {
-                    current=current.Next;    
-                }
-                return current.Data;
-            }
-            set 
+            get
             {
                 if (index < 0 || index >= Count) { throw new ArgumentOutOfRangeException(nameof(index)); }
                 Node current = Head;
@@ -50,22 +40,32 @@ namespace Stack__List_
                 {
                     current = current.Next;
                 }
-                current.Data=value;
+                return current.Data;
+            }
+            set
+            {
+                if (index < 0 || index >= Count) { throw new ArgumentOutOfRangeException(nameof(index)); }
+                Node current = Head;
+                for (int i = 0; i < index; i++)
+                {
+                    current = current.Next;
+                }
+                current.Data = value;
             }
         }
         public void Insert(int index, T data)
         {
             if (index < 0 || index >= Count) { throw new ArgumentOutOfRangeException(nameof(index)); }
-            Node newNode=new Node(data);
-            if(index==0) 
-            { 
-                newNode.Next=Head;
+            Node newNode = new Node(data);
+            if (index == 0)
+            {
+                newNode.Next = Head;
                 Head = newNode;
             }
             else
             {
-                Node current=Head;
-                for (int i = 0; i < index-1; i++)
+                Node current = Head;
+                for (int i = 0; i < index - 1; i++)
                 {
                     current = current.Next;
                 }
@@ -134,8 +134,12 @@ namespace Stack__List_
         }
         public void Clear()
         {
-            Head = null;
-            Count = 0;
+            if (Head != null)
+            {
+                Head = null;
+                Count = 0;
+            }
+
         }
         private class Node
         {
