@@ -132,6 +132,11 @@ namespace Stack__List_
             return false; // Index is out of boundsent.Next;
             Count--;
         }
+        public void Clear()
+        {
+            Head = null;
+            Count = 0;
+        }
         private class Node
         {
             public T Data { get; set; }
