@@ -104,7 +104,7 @@ namespace Stack__List_
                     Count--;
                     return true;
                 }
-                return false; // List is empty, cannot remove from an empty list.
+                return false; 
             }
 
             Node current = Head;
@@ -114,7 +114,6 @@ namespace Stack__List_
             {
                 if (current == null)
                 {
-                    // Index is out of bounds
                     return false;
                 }
 
@@ -129,8 +128,8 @@ namespace Stack__List_
                 return true;
             }
 
-            return false; // Index is out of boundsent.Next;
-            Count--;
+            return false; 
+           
         }
         public void Clear()
         {

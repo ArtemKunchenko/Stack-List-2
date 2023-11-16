@@ -7,26 +7,32 @@ namespace Stack__List_
     {
         static void Main(string[] args)
         {
-            List<string> list = new List<string>();
-            list.Add("Ivan");
-            list.Add("Alex");
-            list.Add("Jim");
-            list.Add("Garry");
-            list.Add("Stiv");
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.Write($"{list[i]}\t"); 
-                
-            }
-           Console.WriteLine(list.Count);
-            list.Remove(4);
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.Write($"{list[i]}\t");
-               
-            }
-            Console.WriteLine(list.Count);
+            Stack<string> ex = new Stack<string>(100);
+
+            //Console.WriteLine(ex.Empty());
+            ex.Push("Ivan");
+            ex.Push("Alex");
+            ex.Push("Jim");
+            ex.Push("Garry");
+            ex.Push("Stiv");
+            
+            //Console.WriteLine(ex.Empty());
+            //for (int i = 0; i < ex.GetSize(); i++)
+            //{
+            //    Console.Write($"{ex[i]}\t");
+
+            //}
+            //string el= ex.Pop();
+            //Console.WriteLine();
+            //for (int i = 0; i < ex.GetSize(); i++)
+            //{
+            //    Console.Write($"{ex[i]}\t");
+
+            //}
+            string[] arr=ex.ToArray();
+            foreach (string s in arr) { Console.WriteLine($"{s}\t"); }
             Console.WriteLine();
+            //Console.WriteLine(el);
             Console.ReadKey();
         }
     }
